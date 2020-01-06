@@ -41,8 +41,23 @@ def command(x_robot, y_robot, current_facing):
 
 
 def robot_position(x_robot, y_robot, current_facing):
-    if (x_robot > max_wtable or x_robot < 0) or (y_robot > max_ltable or y_robot < 0):
+    if x_robot > max_wtable or x_robot < 0:
+        if x_robot > max_wtable
+        x_robot -= 1
+        if x_robot < 0
+        x_robot += 1
+
         print("\nYour robot is going to fall off the table!")
+
+    if y_robot > max_ltable or y_robot < 0:
+        if y_robot > max_wtable
+        y_robot -= 1
+        if y_robot < 0
+        y_robot += 1
+
+        print("\nYour robot is going to fall off the table!")
+
+
     print("Your robot is currently at {}, {} facing {}.".format(x_robot,y_robot,current_facing))
     return command(x_robot, y_robot, current_facing)
 
