@@ -28,14 +28,19 @@ def command(x_robot, y_robot, current_facing):
     if user_cmd == 'ROTATE':
         return robot_rotate(current_facing)
 
-    if user_cmd == 'REPORT':
+    elif user_cmd == 'REPORT':
         return robot_position(x_robot, y_robot, current_facing)
 
-    if user_cmd == 'MOVE':
+    elif user_cmd == 'MOVE':
         return moving_robot(x_robot, y_robot, current_facing)
 
-    if user_ == 'REPOSITION':
+    elif user_ == 'REPOSITION':
         return reposition(x_robot, y_robot, current_facing)
+
+    else:
+        print("That's not a vaild input!")
+        return robot_position(x_robot, y_robot, current_facing)
+
 
 
 
@@ -43,17 +48,17 @@ def command(x_robot, y_robot, current_facing):
 def robot_position(x_robot, y_robot, current_facing):
     if x_robot > max_wtable or x_robot < 0:
         if x_robot > max_wtable:
-        x_robot -= 1
-        if x_robot < 0
-        x_robot += 1
+            x_robot -= 1
+        if x_robot < 0:
+            x_robot += 1
 
         print("\nYour robot is going to fall off the table!")
 
     if y_robot > max_ltable or y_robot < 0:
         if y_robot > max_wtable:
-        y_robot -= 1
-        if y_robot < 0
-        y_robot += 1
+            y_robot -= 1
+        if y_robot < 0:
+            y_robot += 1
 
         print("\nYour robot is going to fall off the table!")
 
@@ -108,7 +113,7 @@ which way did you want to turn?
 
 def moving_robot(x_robot, y_robot, current_facing):
     user_cmd = input("""
-which way did you want to turn?
+which way did you want to move?
         FORWARD
         BACK
 """)
@@ -118,6 +123,7 @@ which way did you want to turn?
         move_forward(x_robot, y_robot, current_facing)
     else:
         print("That's not a vaild input!")
+        robot_position(x_robot, y_robot, current_facing)
 
 
 
