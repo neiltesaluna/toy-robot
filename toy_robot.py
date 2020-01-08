@@ -3,7 +3,7 @@ def initial_robot(x_robot, y_robot, current_facing):
     if (x_robot > max_wtable or x_robot < 0) or (y_robot > max_ltable or y_robot < 0):
         print("\nYour robot is off the table!")
         print("Enter your robots position again")
-        return initial_robot(x_robot,y_robot,current_facing)
+        return reposition(x_robot,y_robot,current_facing)
 
     if current_facing not in looking:
         print("That can't be right...")
@@ -173,8 +173,10 @@ max_ltable = int(input("What is the length of this table? "))
 print("For a table of {}W x {}L".format(max_wtable,max_ltable))
 print("\nPlease enter where you want to put the robot")
 
-x_robot = int(input("x axis = "))
-y_robot = int(input("y axis = "))
-current_facing = input("NORTH, SOUTH, EAST, WEST = ")
+x_robot = 0
+y_robot = 0
+current_facing = 'NORTH'
+
+reposition(x_robot, y_robot, current_facing)
 
 initial_robot(x_robot,y_robot, current_facing)
