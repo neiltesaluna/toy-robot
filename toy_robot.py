@@ -5,9 +5,26 @@ commands_file = open(filename, 'r')
 
 # unpacking the robot commands into a list
 def robot_commands(commands_file):
-    line = commands_file.read()
-    cmd_split = line.split()
-    return cmd_split
+
+    for line in commands_file:
+        if "PLACE " in line:
+            place(line)
+
+def place(line):
+    cmd_strip = line.strip('PLACE ')
+    place_cmd = cmd_strip.split(',')
+
+    x_pos = int(place_cmd[0])
+    y_pos = int(place_cmd[1])
+    f_pos = place_cmd[2]
+
+    position_check(x_pos, y_pos, f_pos)
+
+def position_check(x_pos, y_pos, f_pos):
+
+    print(x_pos,y_pos,f_pos)
+
+
 
 
 
