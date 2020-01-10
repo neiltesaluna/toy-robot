@@ -5,16 +5,26 @@ commands_file = open(filename, 'r')
 
 # unpacking the robot commands into a list
 def robot_commands(commands_file, saved_position):
+    print("---in robot command", saved_position)
 
     for line in commands_file:
+
+        print("---command:", line)
+        print("HELLOOOOOO")
+
         if len(saved_position) == 0:
             if "PLACE " in line:
                 place(line)
             else:
                 robot_commands(commands_file, saved_position)
 
+        print("??????", saved_position)
+
         if "MOVE" in line:
+            print("===", saved_position)
             move(line, saved_position)
+
+
 
 
 def position_check(x_pos, y_pos, f_pos):
@@ -50,12 +60,14 @@ def current_position(x_pos, y_pos, f_pos):
     saved_position = [x_pos, y_pos, f_pos]
     print(f"Your robot is currently at:\nX={x_pos}\nY={y_pos}\nF={f_pos}")
 
+    print("---in current_postiton",saved_position )
     robot_commands(commands_file, saved_position)
 
 
 
 def unpack_position(saved_position):
 
+    print("--- saved pos", saved_position)
     x_pos = int(saved_position[0])
     y_pos = int(saved_position[1])
     f_pos = saved_position[2]
@@ -79,6 +91,7 @@ def place(line):
 
 def move(line, saved_position):
 
+    print("-----sp",saved_position)
     x_pos, y_pos, f_pos = unpack_position(saved_position)
 
     if f_pos == 'NORTH':
