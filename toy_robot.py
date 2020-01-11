@@ -111,10 +111,19 @@ def place(line):
         int(place_cmd[0])
     except:
         print("X is not an integer!")
+        on_table = False
+        return
 
+    try:
+        int(place_cmd[1])
+    except:
+        print("Y is not an integer!")
+        on_table = False
+        return
 
     x_pos = int(place_cmd[0])
     y_pos = int(place_cmd[1])
+    
     f_pos = place_cmd[2]
 
     position_check(x_pos, y_pos, f_pos)
