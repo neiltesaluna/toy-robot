@@ -107,6 +107,12 @@ def place(line):
     cmd_strip = line.strip('PLACE ')
     place_cmd = cmd_strip.split(',')
 
+    try:
+        int(place_cmd[0])
+    except:
+        print("X is not an integer!")
+
+
     x_pos = int(place_cmd[0])
     y_pos = int(place_cmd[1])
     f_pos = place_cmd[2]
@@ -118,6 +124,7 @@ def place(line):
 def unpack_position():
 
     global saved_position
+
 
     x_pos = int(saved_position[0])
     y_pos = int(saved_position[1])
